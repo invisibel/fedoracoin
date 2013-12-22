@@ -1,0 +1,9 @@
+Building FedoraCoin
+
+See doc/readme-qt.rst for instructions on building FedoraCoin-QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of FedoraCoin.
+
+See doc/build-*.txt for instructions on building fedoracoind,
+the intended-for-services, no-graphical-interface, reference
+implementation of FedoraCoin.

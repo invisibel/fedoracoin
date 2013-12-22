@@ -1,0 +1,3 @@
+Add proper credits to source files (based on DogeCoin, parts taken from StableCoin)
+Fix up Qt so that it compiles
+Rename some more stuff from dogecoin to FedoraCoin
