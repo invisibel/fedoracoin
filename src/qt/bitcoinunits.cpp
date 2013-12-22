@@ -56,10 +56,10 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTC:  return 100000000;
-    case mBTC: return 100000;
-    case uBTC: return 100;
-    default:   return 100000000;
+    case BTC:  return 500000000;
+    case mBTC: return 500000;
+    case uBTC: return 500;
+    default:   return 500000000;
     }
 }
 
