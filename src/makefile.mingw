@@ -2,7 +2,7 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file license.txt or http://www.opensource.org/licenses/mit-license.php.
 
-USE_UPNP:=0
+USE_UPNP:=-
 
 INCLUDEPATHS= \
  -I"C:/deps/boost_1_54_0" \
@@ -13,7 +13,8 @@ INCLUDEPATHS= \
 LIBPATHS= \
  -L"C:\deps\boost_1_54_0\stage\lib" \
  -L"C:\deps\db-4.8.30.NC\build_unix" \
- -L"C:\deps\openssl-1.0.1e" 
+ -L"C:\deps\openssl-1.0.1e" \
+ -L"C:\deps\boost_1_54_0\miniupnpc" 
 
 LIBS= \
  -l boost_system-mgw48-mt-s-1_54 \
