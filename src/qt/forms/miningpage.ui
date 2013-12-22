@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dig</string>
+   <string>Mining</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="sizeConstraint">
@@ -83,7 +83,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Start Dig</string>
+      <string>Start Mining</string>
      </property>
     </widget>
    </item>
@@ -202,12 +202,12 @@
      </property>
      <item>
       <property name="text">
-       <string>Solo Dig</string>
+       <string>Solo Mining</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Herd Dig</string>
+       <string>Pool Mining</string>
       </property>
      </item>
     </widget>
