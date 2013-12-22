@@ -130,7 +130,7 @@ SendCoinsRecipient SendCoinsEntry::getValue()
 
     rv.address = ui->payTo->text();
     rv.label = ui->addAsLabel->text();
-    rv.amount = ui->payAmount->value() * 5;
+    rv.amount = ui->payAmount->value();
 
     return rv;
 }

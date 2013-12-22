@@ -1,6 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
+// Copyright (c) 2013 DogeCoin Developers
 // Copyright (c) 2013 FedoraCoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -841,7 +842,8 @@ int static generateMTRandom(unsigned int s, int range)
 
 int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
 {
-        int64 nSubsidy = 10000 * COIN;
+        int64 OLDCOIN = 500000000;
+        int64 nSubsidy = 10000 * OLDCOIN;
          
         std::string cseed_str = prevHash.ToString().substr(7,7);
         const char* cseed = cseed_str.c_str();
@@ -855,7 +857,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
        
         if(nHeight < 100000)    
         {
-                nSubsidy = (1 + rand) * COIN;
+                nSubsidy = (1 + rand) * OLDCOIN;
         }
         else if(nHeight < 200000)      
         {
@@ -863,7 +865,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand1 = generateMTRandom(seed, 499999);
-                nSubsidy = (1 + rand1) * COIN;
+                nSubsidy = (1 + rand1) * OLDCOIN;
         }
         else if(nHeight < 300000)      
         {
@@ -871,7 +873,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand2 = generateMTRandom(seed, 249999);
-                nSubsidy = (1 + rand2) * COIN;
+                nSubsidy = (1 + rand2) * OLDCOIN;
         }
         else if(nHeight < 400000)      
         {
@@ -879,7 +881,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand3 = generateMTRandom(seed, 124999);
-                nSubsidy = (1 + rand3) * COIN;
+                nSubsidy = (1 + rand3) * OLDCOIN;
         }
         else if(nHeight < 500000)      
         {
@@ -887,7 +889,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand4 = generateMTRandom(seed, 62499);
-                nSubsidy = (1 + rand4) * COIN;
+                nSubsidy = (1 + rand4) * OLDCOIN;
         }
         else if(nHeight < 600000)      
         {
@@ -895,7 +897,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees, uint256 prevHash)
                 cseed = cseed_str.c_str();
                 seed = hex2long(cseed);
                 rand5 = generateMTRandom(seed, 31249);
-                nSubsidy = (1 + rand5) * COIN;
+                nSubsidy = (1 + rand5) * OLDCOIN;
         }
  
     return nSubsidy + nFees;
@@ -970,7 +972,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         // Special difficulty rule for testnet:
         if (fTestNet)
         {
-            // If the new block's timestamp is more than 2* 10 minutes
+            // If the new block's timestamp is more than 2*nTargetSpacing minutes
             // then allow mining of a min-difficulty block.
             if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
                 return nProofOfWorkLimit;
@@ -987,7 +989,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         return pindexLast->nBits;
     }
 
-    // StableCoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // FedoraCoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     int blockstogoback = nInterval-1;
     if ((pindexLast->nHeight+1) != nInterval)
